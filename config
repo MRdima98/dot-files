@@ -10,24 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # MY STUFF
-workspace 1 output DP-1
-workspace 2 output DP-2
-workspace 3 output DP-1
-workspace 4 output DP-2
-workspace 5 output DP-1
-workspace 6 output DP-2
-workspace 7 output DP-1
-workspace 8 output DP-2
-workspace 9 output DP-1
-workspace 10 output DP-2
 bindsym $mod+i exec setxkbmap it
 bindsym $mod+u exec setxkbmap us
-bindsym $mod+F5 exec /home/dima/.scripts/refreshFirefoxTab.sh
-exec firefox 
-exec slack
-exec telegram-desktop
-exec zsh
-exec rubymine
 
 # For screenshots install :
 # apt-get install maim xclip copyq
