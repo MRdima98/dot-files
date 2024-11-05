@@ -8,25 +8,24 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
 # MY STUFF
 bindsym $mod+i exec setxkbmap it
 bindsym $mod+u exec setxkbmap us
+bindsym $mod+t exec ~/Telegram/Telegram
+exec_always ~/.screenlayout/default.sh
+exec_always gnome-terminal
+exec_always chromium
+exec_always firefox
+exec_always obs
+exec_always ~/Telegram/Telegram
+for_window [class="gnome-terminal"] move to workspace 1
+for_window [class="Chromium"] move to workspace 2
+for_window [class="^firefox$"] move to workspace 3
+for_window [class="^obs$"] move to workspace 4
+for_window [class="TelegramDesktop"] move to workspace 7
+for_window [class="Discord"] move to workspace 8
 
-# For screenshots install :
-# apt-get install maim xclip copyq
-
-##  Screenshots in files
-bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-all.png"
-bindsym $mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-current.png"
-bindsym Shift+Print exec --no-startup-id maim --format=png --select "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-selected.png"
-
-## Screenshots in clipboards
-bindsym Ctrl+Print exec --no-startup-id maim --format=png | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+c exec xsel -bc
-
+bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 
 set $mod Mod4
 
@@ -55,13 +54,17 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym F1 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -203,3 +206,4 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+

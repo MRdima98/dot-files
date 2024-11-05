@@ -7,7 +7,7 @@ require('telescope').setup {
   --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
   --   },
   -- },
-  -- pickers = {}
+  -- pickers = { },
   extensions = {
     ['ui-select'] = {
       require('telescope.themes').get_dropdown(),
