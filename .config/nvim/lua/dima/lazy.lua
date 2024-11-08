@@ -14,7 +14,6 @@ require('lazy').setup {
     branch = 'harpoon2',
   },
   'tpope/vim-fugitive',
-  'brianhuster/live-preview.nvim',
   'tpope/vim-surround',
   {
     'stevearc/oil.nvim',
