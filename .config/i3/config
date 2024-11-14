@@ -25,7 +25,7 @@ for_window [class="^obs$"] move to workspace 4
 for_window [class="TelegramDesktop"] move to workspace 7
 for_window [class="Discord"] move to workspace 8
 
-bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Print exec flameshot gui -c
 
 set $mod Mod4
 
