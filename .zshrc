@@ -4,7 +4,9 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:~/Telegram/Telegram"
+export PATH=$PATH:/usr/local/java/bin
 export PATH=$PATH:/usr/local/go/bin
+export PATH="$DENO_INSTALL/bin:$PATH"
 export DENO_INSTALL="/home/dima/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
