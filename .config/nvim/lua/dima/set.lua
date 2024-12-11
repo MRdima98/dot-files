@@ -3,6 +3,9 @@ vim.g.maplocalleader = ' '
 --
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
 
 -- Make cool number
 vim.opt.number = true
