@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 # MY STUFF
-bindsym $mod+i exec setxkbmap it
+bindsym $mod+i exec setxkbmap us -variant intl
 bindsym $mod+u exec setxkbmap us
 bindsym $mod+t exec ~/Telegram/Telegram
 exec_always ~/.screenlayout/default.sh
