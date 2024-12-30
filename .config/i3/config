@@ -9,26 +9,26 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 # MY STUFF
-bindsym $mod+i exec setxkbmap us -variant intl
-bindsym $mod+u exec setxkbmap us
-bindsym $mod+t exec ~/Telegram/Telegram
-exec_always ~/.screenlayout/default.sh
-exec_always gnome-terminal
+# exec_always ~/.screenlayout/default.sh
+exec_always wlr-randr --output DP-2 --off
+exec_always kitty
 exec_always chromium
 exec_always firefox
 exec_always obs
-exec_always ~/Telegram/Telegram
+exec_always telegram-desktop
 exec_always discord
-for_window [class="gnome-terminal"] move to workspace 1
+assign [app_id="kitty"] 1
 for_window [class="Chromium"] move to workspace 2
-for_window [class="^firefox$"] move to workspace 3
-for_window [class="^obs$"] move to workspace 4
-for_window [class="TelegramDesktop"] move to workspace 7
+assign [app_id="firefox"] 3
+assign [app_id="obs"] 4
+assign [app_id="telegram"] 7
 for_window [class="discord"] move to workspace 8
 
 bindsym Print exec flameshot gui -c
 
 set $mod Mod4
+bindsym $mod+i exec setxkbmap us -variant intl
+bindsym $mod+u exec setxkbmap us
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -63,12 +63,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
-
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
