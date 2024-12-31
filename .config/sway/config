@@ -5,6 +5,13 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 # Disable my second monitor because I have a drawing tablet
 exec_always wlr-randr --output DP-2 --off
 
+# Keyboard magic
+input "type:keyboard" {
+    xkb_layout us,us
+    xkb_variant ,intl
+    xkb_options grp:ctrl_shift_toggle
+}
+
 # Start every software I need and put it on specific screen. Order people ORDER!
 exec kitty
 exec chromium
