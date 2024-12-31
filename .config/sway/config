@@ -9,7 +9,7 @@ exec_always wlr-randr --output DP-2 --off
 input "type:keyboard" {
     xkb_layout us,us
     xkb_variant ,intl
-    xkb_options grp:ctrl_shift_toggle
+    xkb_options grp:shifts_toggle
 }
 
 # Start every software I need and put it on specific screen. Order people ORDER!
