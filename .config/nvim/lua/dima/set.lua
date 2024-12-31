@@ -71,3 +71,4 @@ vim.opt.expandtab = true
 
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
+vim.api.nvim_set_keymap('n', '<C-f>', ':!ls<CR>', { noremap = true, silent = true })
