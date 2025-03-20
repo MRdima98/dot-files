@@ -12,6 +12,13 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export XDG_CURRENT_DESKTOP=sway
 export QT_QPA_PLATFORM=wayland
 export QT_QPA_PLATFORMTHEME="qt5ct"
+export _JAVA_AWT_WM_NONREPARENTING=1
+export XDG_SESSION_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland 
+export WLR_RENDERER=vulkan 
+export GBM_BACKEND=nvidia-drm 
+export __GLX_VENDOR_LIBRARY_NAME=nvidia 
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -108,3 +115,7 @@ export NVM_DIR="$HOME/.nvm"
 
 bindkey -s ^f "tmux-sessionizer\n"
 
+. "/home/dima/.deno/env"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

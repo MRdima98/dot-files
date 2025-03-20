@@ -14,6 +14,10 @@ require('lazy').setup {
     branch = 'harpoon2',
   },
   'tpope/vim-fugitive',
+  'kblin/vim-fountain',
+  'brianhuster/live-preview.nvim',
+  'ray-x/web-tools.nvim',
+  'nvim-treesitter/nvim-treesitter-context',
   {
     'MagicDuck/grug-far.nvim',
     config = function()
@@ -156,7 +160,9 @@ require('lazy').setup {
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  -- TODO:
+  -- NOTE:
+  { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   'nvim-lualine/lualine.nvim',
 
   { -- Collection of various small independent plugins/modules
@@ -218,11 +224,4 @@ require('lazy').setup {
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    This is the easiest way to modularize your config.
-  --
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
 }

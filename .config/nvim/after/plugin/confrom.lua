@@ -22,6 +22,7 @@ conform.setup {
     lua = { 'stylua' },
     -- html = { 'htmlbeautifier' },
     sql = { 'sql_formatter' },
+    rust = { 'leptosfmt' },
     javascript = { 'prettierd', 'prettier', stop_after_first = true },
   },
 }
