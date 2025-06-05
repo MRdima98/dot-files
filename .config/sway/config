@@ -14,6 +14,9 @@ input "type:keyboard" {
     xkb_options grp:shifts_toggle
 }
 
+output DP-3 pos 1920 0 res 2560x1440@144Hz scale 1.25
+output DP-2 pos 0 0 res 1920x1080
+
 # Start every software I need and put it on specific screen. Order people ORDER!
 exec kitty
 exec chromium

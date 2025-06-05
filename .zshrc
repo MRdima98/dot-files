@@ -6,9 +6,6 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:~/Telegram/Telegram"
 export PATH=$PATH:/usr/local/java/bin
 export PATH=$PATH:/usr/local/go/bin
-export PATH="$DENO_INSTALL/bin:$PATH"
-export DENO_INSTALL="/home/dima/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
 export XDG_CURRENT_DESKTOP=sway
 export QT_QPA_PLATFORM=wayland
 export QT_QPA_PLATFORMTHEME="qt5ct"
@@ -115,7 +112,6 @@ export NVM_DIR="$HOME/.nvm"
 
 bindkey -s ^f "tmux-sessionizer\n"
 
-. "/home/dima/.deno/env"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
