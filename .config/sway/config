@@ -1,9 +1,16 @@
 # Shenanigans to make obs screen record 
-exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_CURRENT_DESKTOP=sway
+# exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+# exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+include /etc/sway/config.d/*
 
-# Disable my second monitor because I have a drawing tablet
-exec_always wlr-randr --output DP-2 --off
+# Screen layout
+output eDP-1 pos 0 0
+output HDMI-A-1 pos 1920 0 scale 1.25 mode 2560x1440@144Hz
+# output DP-3 pos 0 0
+# output HDMI-A-1 pos 1920 1080
 
 # Keyboard magic
 input "type:keyboard" {
@@ -12,27 +19,31 @@ input "type:keyboard" {
     xkb_options grp:shifts_toggle
 }
 
+input "type:touchpad" {
+    natural_scroll enabled
+    tap enabled
+}
+
 # Start every software I need and put it on specific screen. Order people ORDER!
 exec kitty
-exec chromium
+exec google-chrome
 exec firefox
-exec obs
-exec telegram-desktop
-exec discord
+exec ~/Programs/Telegram/Telegram
 assign [app_id="kitty"] 1
-for_window [class="Chromium"] move to workspace 2
+assign [app_id="google-chrome"] 2
 assign [app_id="firefox"] 3
-assign [app_id="obs"] 4
-assign [app_id="telegram"] 7
-for_window [class="discord"] move to workspace 8
+assign [app_id="^org.telegram.desktop"] 7
+workspace 1 output HDMI-A-1
+workspace 2 output HDMI-A-1
+workspace 3 output HDMI-A-1
+workspace 4 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 5 output HDMI-A-1
 
 # Should do screenshots
-bindsym Print exec flameshot gui -c
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
 set $mod Mod4
-bindsym $mod+i exec setxkbmap us -variant intl
-bindsym $mod+u exec setxkbmap us
-
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -175,9 +186,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
-        status_command i3status
+        status_command ~/Programs/bumblebee-status/bumblebee-status -m pulseout cpu disk memory battery datetime -p cpu.interval=6s memory.interval=1m memory.format='{percent:05.02f}%' disk.format='{percent:05.02f}%' datetime.format="%d-%m %H:%M:%S"
 }
 

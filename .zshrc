@@ -12,6 +12,8 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export XDG_CURRENT_DESKTOP=sway
 export QT_QPA_PLATFORM=wayland
 export QT_QPA_PLATFORMTHEME="qt5ct"
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -101,10 +103,10 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch $(uname -m)"
 
 alias vim=nvim
+alias air=~/go/bin/air
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 bindkey -s ^f "tmux-sessionizer\n"
-
