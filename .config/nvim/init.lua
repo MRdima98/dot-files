@@ -9,3 +9,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+function rsync()
+  return ':!rsync -avz --files-from=<(git ls-files) ./ dumitru.frunza@policy-dev.widegroup.eu:~/policyDima<CR>'
+end
+
+vim.keymap.set('n', '<leader>t', rsync(), { noremap = true, silent = true, desc = 'Run ls in shell' })
+
+-- in your nvim config
+vim.filetype.add({
+  extension = {
+    jbuilder = "ruby",
+  },
+})
