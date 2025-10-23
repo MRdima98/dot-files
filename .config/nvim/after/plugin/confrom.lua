@@ -20,6 +20,7 @@ conform.setup {
   end,
   formatters_by_ft = {
     lua = { 'stylua' },
+    markdown = { 'markdownlint' },
     -- html = { 'htmlbeautifier' },
     sql = { 'sql_formatter' },
     rust = { 'leptosfmt' },
