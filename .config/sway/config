@@ -6,7 +6,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 # exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 include /etc/sway/config.d/*
 
-for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, resize set 320 190, move position 1520 100
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, resize set 400 200, move position 1460 100
 
 # Screen layout
 output eDP-1 pos 0 0
