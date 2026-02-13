@@ -59,6 +59,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+bindsym $mod+p exec swaymsg "output 'HDMI-A-1' dpms off" && swaylock -i ~/Immagini/lock.webp && swaymsg "output 'HDMI-A-1' dpms on"
+bindsym $mod+o exec swaymsg "output 'HDMI-A-1' dpms on"
 
 # start a terminal
 bindsym $mod+Return exec kitty

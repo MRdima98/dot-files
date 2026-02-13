@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch $(uname -m)"
 
 alias vim=nvim
+alias python=python3.12
 alias air=~/go/bin/air
 
 export NVM_DIR="$HOME/.nvm"

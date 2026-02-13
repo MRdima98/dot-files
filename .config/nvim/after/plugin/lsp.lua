@@ -91,16 +91,3 @@ require('mason-lspconfig').setup {
     end,
   },
 }
-
-vim.lsp.config('ruby_lsp', {
-  init_options = {
-    formatter = 'standard',
-    linters = { 'standard' },
-    addonSettings = {
-      ['Ruby LSP Rails'] = {
-        enablePendingMigrationsPrompt = false,
-      },
-    },
-  },
-})
-vim.lsp.enable('ruby_lsp')

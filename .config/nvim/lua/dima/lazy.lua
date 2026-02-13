@@ -14,6 +14,8 @@ require('lazy').setup {
     branch = 'harpoon2',
   },
   'tpope/vim-fugitive',
+  'kblin/vim-fountain',
+  'nvim-treesitter/nvim-treesitter-context',
   {
     'MagicDuck/grug-far.nvim',
     config = function()

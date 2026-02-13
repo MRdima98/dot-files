@@ -11,6 +11,13 @@ require('telescope').setup {
       },
     },
   },
+  file_ignore_patterns = {
+    'node_modules',
+    '%.git',
+    'dist',
+    'build',
+    'Fonts',
+  },
   pickers = {
     width = 0.3,
   },
