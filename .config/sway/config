@@ -10,9 +10,10 @@ for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky
 
 # Screen layout
 output eDP-1 pos 0 0
-output HDMI-A-1 pos 1920 0 scale 1.25 mode 2560x1440@144Hz
-# output DP-3 pos 0 0
+output HDMI-A-1 pos 1920 0 scale 1.25 mode 2560x1440@144Hz adaptive_sync off
 # output HDMI-A-1 pos 1920 1080
+# output HDMI-A-1 pos 0 -1080
+# output DP-3 pos 0 0
 
 # Keyboard magic
 input "type:keyboard" {
@@ -47,6 +48,7 @@ workspace 9 output HDMI-A-1
 
 # Should do screenshots
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
+bindsym Shift+Print exec grim - | wl-copy
 
 set $mod Mod4
 

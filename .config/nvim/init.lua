@@ -11,11 +11,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 function rsync()
-  return ':!rsync -avz --files-from=<(git ls-files) ./ dumitru.frunza@policy-dev.widegroup.eu:~/policyDima<CR>'
+  return ':!rsync -avz --files-from=<(git ls-files) ./ wg.rails.deploy@dev1.policy.intranet.widegroup.eu:~/policy<CR>'
 end
 
 function rsync_and_build()
-  return ":!rsync -avz --files-from=<(git ls-files) ./ dumitru.frunza@policy-dev.widegroup.eu:~/policyDima ; ssh dev 'cd policyDima/ ; source /usr/local/nvm/nvm.sh ; yarn build' <CR>"
+  return ":!rsync -avz --files-from=<(git ls-files) ./ wg.rails.deploy@dev1.policy.intranet.widegroup.eu:~/policy ; ssh dev \"bash -c -l 'cd policy/ ; /usr/bin/yarn build'\" ; swaymsg '[app_id=\"google-chrome\" workspace=\"2\"] focus' && wtype -k F5 <CR>"
 end
 
 vim.keymap.set('n', '<leader>t', rsync(), { noremap = true, silent = true, desc = 'Run ls in shell' })
@@ -29,17 +29,15 @@ vim.filetype.add({
 })
 
 require'treesitter-context'.setup{
-  enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-  multiwindow = false, -- Enable multiwindow support.
-  max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-  min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+  enable = true,
+  multiwindow = false,
+  max_lines = 0,
+  min_window_height = 0,
   line_numbers = true,
-  multiline_threshold = 20, -- Maximum number of lines to show for a single context
-  trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-  mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
-  -- Separator between context and content. Should be a single character string, like '-'.
-  -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+  multiline_threshold = 3,
+  trim_scope = 'outer',
+  mode = 'cursor', 
   separator = nil,
-  zindex = 20, -- The Z-index of the context window
-  on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+  zindex = 5,
+  on_attach = nil,
 }
